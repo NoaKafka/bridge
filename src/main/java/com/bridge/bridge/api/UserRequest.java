@@ -1,6 +1,5 @@
-package com.bridge.bridge.user;
+package com.bridge.bridge.api;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter

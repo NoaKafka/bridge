@@ -1,4 +1,4 @@
-package com.bridge.bridge.user;
+package com.bridge.bridge.api;
 
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.bridge.bridge.user;
+package com.bridge.bridge.api;
 
 public interface UserRepository {
     UserDTO saveUser(UserDTO userDTO);

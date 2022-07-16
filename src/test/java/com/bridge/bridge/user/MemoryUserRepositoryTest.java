@@ -1,11 +1,13 @@
 package com.bridge.bridge.user;
 
+import com.bridge.bridge.api.MemoryUserRepository;
+import com.bridge.bridge.api.UserDTO;
+import com.bridge.bridge.api.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
 class MemoryUserRepositoryTest {

@@ -1,11 +1,8 @@
-package com.bridge.bridge.user;
+package com.bridge.bridge.api;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
-
-import javax.persistence.Column;
-import javax.persistence.Id;
 
 @AllArgsConstructor
 @Getter
