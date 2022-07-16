@@ -25,8 +25,10 @@ public class UserController {
 
         if(action.equals(Action.JOIN)){
             userRepository.saveUser(userDTO);
-        } else if (action.equals(Action.WITHDRAW)) {
+        } else if (action.equals(Action.UPDATE)) {
             userRepository.updateUser(userDTO);
+        } else if (action.equals(Action.WITHDRAW)) {
+
         } else if (action.equals(Action.LOGIN)) {
 
         } else if (action.equals(Action.LOGOUT)) {

@@ -27,5 +27,5 @@ public class UserRequest {
 }
 
 enum Action {
-    JOIN, WITHDRAW, LOGIN, LOGOUT
+    JOIN, UPDATE, WITHDRAW, LOGIN, LOGOUT
 }

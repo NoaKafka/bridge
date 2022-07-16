@@ -22,4 +22,13 @@ public class MemoryUserRepository implements UserRepository{
         UserEntity user = userMap.get(userDTO.getUserId());
         return new UserDTO(user.updateUser(userDTO));
     }
+
+    @Override
+    public UserDTO deleteUser(UserDTO userDTO) {
+        UserEntity user = userMap.get(userDTO.getUserId());
+        if(user != null){
+            userMap.remove(user.getUserId());
+        }
+        return null;
+    }
 }

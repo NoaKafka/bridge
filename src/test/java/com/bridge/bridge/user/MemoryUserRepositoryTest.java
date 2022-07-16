@@ -32,4 +32,13 @@ class MemoryUserRepositoryTest {
         assertThat(updatedUser.getProfile()).isEqualTo(user2update.getProfile());
     }
 
+    @Test
+    void deleteUser(){
+        UserDTO user = new UserDTO("noakafka", "1234", "noa", "Repo Test");
+        UserDTO savedUser = repository.saveUser(user);
+
+        UserDTO user2delete = new UserDTO("noakafka", "1234", "noa", "Update Test");
+        UserDTO deletdUser = repository.deleteUser(user2delete);
+    }
+
 }
