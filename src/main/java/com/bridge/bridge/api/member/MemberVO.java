@@ -10,7 +10,6 @@ public class MemberVO {
 
     private String memberId;
     private String name;
-    private String jSessionId;
 
     public MemberVO(Member member) {
         this.memberId = member.getMemberId();

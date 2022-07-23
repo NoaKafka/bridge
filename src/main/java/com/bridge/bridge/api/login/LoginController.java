@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -26,29 +27,34 @@ public class LoginController {
     private final LoginService loginService;
 
     @RequestMapping("/login")
-    public @ResponseBody MemberVO login(@RequestBody LoginForm loginForm,
-                          HttpServletRequest request,
+    public @ResponseBody MemberVO login(@RequestBody LoginForm loginForm, HttpSession httpSession,
                           HttpServletResponse response) throws Exception{
 
         MemberVO memberVO = loginService.login(loginForm.getLoginId(), loginForm.getPassword());
+
+        /**
+         *  Session Version
+         *
         if(memberVO != null){
-            HttpSession session = request.getSession();
             // check session
-            if(sessionCheck(request) == false){
-                session.setAttribute("memberId", UUID.randomUUID().toString());
+            if(sessionCheck(httpSession) == false){
+                httpSession.setAttribute("memberId", UUID.randomUUID().toString());
             }
-            String sessionId = (String)session.getAttribute("memberId");
+            String sessionId = (String)httpSession.getAttribute("memberId");
+
+            // JSON Version
             memberVO.setJSessionId(sessionId);
+
 
             return memberVO;
         }
+        */
 
         return memberVO;
     }
 
-    private Boolean sessionCheck(HttpServletRequest request){
-        HttpSession session = request.getSession();
-        return session.getAttribute("memberId") != null;
+    private Boolean sessionCheck(HttpSession httpSession){
+        return httpSession.getAttribute("memberId") != null;
     }
 
 }
