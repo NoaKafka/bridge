@@ -32,24 +32,17 @@ public class LoginController {
 
         MemberVO memberVO = loginService.login(loginForm.getLoginId(), loginForm.getPassword());
 
-        /**
-         *  Session Version
-         *
+
         if(memberVO != null){
             // check session
             if(sessionCheck(httpSession) == false){
                 httpSession.setAttribute("memberId", UUID.randomUUID().toString());
             }
-            String sessionId = (String)httpSession.getAttribute("memberId");
-
-            // JSON Version
-            memberVO.setJSessionId(sessionId);
-
+            Cookie cookie = new Cookie("id", memberVO.getId().toString());
+            response.addCookie(cookie);
 
             return memberVO;
         }
-        */
-
         return memberVO;
     }
 
