@@ -1,6 +1,7 @@
-package com.bridge.bridge.api;
+package com.bridge.bridge.api.member;
 
 import com.bridge.bridge.domain.member.Member;
+import com.bridge.bridge.domain.member.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,17 +10,17 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/user")
+@RequestMapping("/member")
 public class MemberController {
 
     private final MemberService memberservice;
 
-    @GetMapping("/member")
+    @GetMapping
     public List<Member> findAllMember(){
         return memberservice.findMembers() ;
     }
 
-    @PostMapping("/member")
+    @PostMapping
     public Member save(@RequestBody MemberRequest memReq){
         Member member = Member.builder().
                 memberId(memReq.getUserId()).
@@ -28,7 +29,7 @@ public class MemberController {
         return memberservice.save(member);
     }
 
-    @GetMapping("/member/{userid}/exists")
+    @GetMapping("/{memberId}/exists")
     public ResponseEntity<Boolean> checkMemberIdDuplicate(@PathVariable String memberId){
         return ResponseEntity.ok(memberservice.checkIdDuplicate(memberId));
     }

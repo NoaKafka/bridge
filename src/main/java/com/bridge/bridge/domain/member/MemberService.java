@@ -1,11 +1,9 @@
-package com.bridge.bridge.api;
+package com.bridge.bridge.domain.member;
 
-import com.bridge.bridge.domain.member.Member;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
